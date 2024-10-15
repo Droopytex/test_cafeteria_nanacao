@@ -25,7 +25,7 @@ describe("Operaciones CRUD de cafes", () => {
     expect(response.status).toBe(404);
   });
 
-  it("POST/cafes agrega un nuevo café y devuelve un código 201", async () => {
+  it("POST/cafes Agregar un nuevo café y devolver un código 201", async () => {
     const nuevoCafe = {
       nombre: "Café Negro",
     };
@@ -35,11 +35,12 @@ describe("Operaciones CRUD de cafes", () => {
   });
 
   describe("PUT /cafes/:id", () => {
-    it("Devolver un code 400 si los ids no coinciden", async () => {
+    it("Devolver un code 400 si los parámetros no coinciden", async () => {
       const cafeActualizado = {
         id: 1,
-        nombre: "Café Latte",
-        descripcion: "Café con leche",
+        nombre: "Café Irish",
+        descripcion:
+          "Mezcla de whisky irlandés, una cucharada de azúcar y café, pero finalmente va cubierto por dos centímetros de crema de leche",
       };
       const response = await request(app).put("/cafes/2").send(cafeActualizado);
       expect(response.status).toBe(400);
